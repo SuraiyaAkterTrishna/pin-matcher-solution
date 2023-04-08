@@ -16,5 +16,24 @@ function generatePin(){
 // generate 4 digit pin 
 document.getElementById('generate-pin').addEventListener('click', function(){
     const pin = getPin();
-    console.log(pin);
+    // display pin 
+    const displayElement = document.getElementById('display-pin');
+    displayElement.value = pin;
+});
+// calculator section 
+document.getElementById('calculator').addEventListener('click', function(event){
+    const number = event.target.innerText;
+    const typedNumberField = document.getElementById('typed-number');
+    if(isNaN(number)){
+        if(number === 'C'){
+            typedNumberField.value = '';
+        }
+    }
+    else{
+        
+        const previousTypedNumber = typedNumberField.value;
+        const newTypedNumber = previousTypedNumber + number;
+        typedNumberField.value = newTypedNumber;
+    }
+    
 })
