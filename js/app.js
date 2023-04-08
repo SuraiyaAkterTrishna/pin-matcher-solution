@@ -55,9 +55,11 @@ document.getElementById('verify-pin').addEventListener('click', function(){
     const typedNumber = typedNumberField.value;
 
     if(currentPin === typedNumber){
-        console.log('correct pin');
+        const pinSuccessMessage = document.getElementById('pin-success');
+        pinSuccessMessage.style.display = 'block';
     }
     else{
-        console.log('incorrect pin');
+        const pinFailureMessage = document.getElementById('pin-failure');
+        pinFailureMessage.style.display = 'block';
     }
 });
