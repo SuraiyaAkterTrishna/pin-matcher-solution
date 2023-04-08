@@ -48,5 +48,16 @@ document.getElementById('calculator').addEventListener('click', function(event){
     }
 });
 document.getElementById('verify-pin').addEventListener('click', function(){
-    console.log('verify button clicked');
+    const displayPinField = document.getElementById('display-pin');
+    const currentPin = displayPinField.value;
+
+    const typedNumberField = document.getElementById('typed-number');
+    const typedNumber = typedNumberField.value;
+
+    if(currentPin === typedNumber){
+        console.log('correct pin');
+    }
+    else{
+        console.log('incorrect pin');
+    }
 });
