@@ -8,11 +8,11 @@ function getPin(){
         console.log('3 digit pin found');
         return getPin();
     }
-}
+};
 function generatePin(){
     const random = Math.round(Math.random()*10000);
     return random;
-}
+};
 // generate 4 digit pin 
 document.getElementById('generate-pin').addEventListener('click', function(){
     const pin = getPin();
@@ -24,16 +24,29 @@ document.getElementById('generate-pin').addEventListener('click', function(){
 document.getElementById('calculator').addEventListener('click', function(event){
     const number = event.target.innerText;
     const typedNumberField = document.getElementById('typed-number');
+    const previousTypedNumber = typedNumberField.value;
     if(isNaN(number)){
         if(number === 'C'){
             typedNumberField.value = '';
         }
+        if(number === '<'){
+           /* 
+           //my system
+           const previousTypedNumberField = typedNumberField.value;
+           const newTypedNumberField = previousTypedNumberField.slice(0, -1);
+           typedNumberField.value = newTypedNumberField; */
+        // jhankar mahbub system
+            const digits = previousTypedNumber.split('');
+            digits.pop();
+            const remainingDigits = digits.join('');
+            typedNumberField.value = remainingDigits;
+        }
     }
     else{
-        
-        const previousTypedNumber = typedNumberField.value;
         const newTypedNumber = previousTypedNumber + number;
         typedNumberField.value = newTypedNumber;
     }
-    
-})
+});
+document.getElementById('verify-pin').addEventListener('click', function(){
+    console.log('verify button clicked');
+});
